@@ -1,0 +1,24 @@
+$def with (form)
+
+<html>
+	<meta charset='utf-8'> </meta>
+	<title> List 370kan </title>
+	<body>
+		<form action="/find" method="GET">
+			<div>
+			<center>
+				$:form.render()
+			</center>
+			</div>
+		</form>
+		<div class="err-message">
+			$if not form.valid: Input Movie ID or paste intro page URL
+		</div>
+		<div>
+			<center><a href="http://dl.p2sp.baidu.com/BaiduPlayer/BaiduPlayer1.19.0.146_37027057.exe" target="_blank">
+				Download BaiduPlayer
+			</a></center>
+		</div>
+	</body>
+
+</html>

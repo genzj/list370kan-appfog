@@ -1,0 +1,71 @@
+$def with (title, results)
+
+<html>
+	<meta charset='utf-8'> </meta>
+	<head>
+		<title> 搜索$title的结果 </title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+		<style type="text/css">
+		  div.infobox {
+			  width: 688px;
+			  height: $((len(results)/4+1)*174+100)px;
+			  padding-top: 10px;
+			  margin: 0 auto;
+		  }
+		  .infobox ul {
+			  padding: 0;
+			  margin: 0;
+		  }
+		  .infobox li {
+			  float:left;
+			  width:154px !important;
+			  width:152px;
+			  height:170px;
+			  border:1px solid rgb(130, 192, 190);
+			  background-color:#F6FFee;
+			  margin:4px;
+			  text-align:center;
+			  padding:10px 0;
+			  overflow:hidden;
+			  position:relative;
+		  }
+		  .infobox .infoimage img {
+			  width:120px;
+			  height:150px;
+		  }
+		  .infobox .infoname {
+			  font-size:80%;
+		  }
+		  .footer {
+			  width: 688px;
+			  text-align: center;
+			  margin: 5px auto;
+		  }
+		</style>
+	</head>
+	<body>
+		<div id="search-results">
+			$if not results: <p> Search $title returns 0 result. </p>
+			$else:
+			<div class="infobox">
+				<ul>
+					$for movie in results:
+					<li>
+					<div class="infoimage">
+						<a href="/search?q=$movie['id']" target="_blank">
+							<img src="$movie['img']" alt="$movie['title']" />
+						</a>
+					</div>
+					<div class="infoname"><a href="/search?q=$movie['id']" target="_blank">$movie['title']</a></div>
+					<!-- <div class="nbr">$loop.index</div> -->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="http://dl.p2sp.baidu.com/BaiduPlayer/BaiduPlayer1.19.0.146_37027057.exe" target="_blank">
+					Download BaiduPlayer
+			</a>
+		</div>
+	</body>
+</html>
